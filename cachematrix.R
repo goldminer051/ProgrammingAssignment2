@@ -1,7 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Programming Assingment 2 - R Programming
+## This script contains pair of functions that cache the inverse of a matrix
+## as follows:
+## (1) makeCacheMatrix: Creates a special "matrix" object that can cache its 
+## inverse.
+## (2) cacheSolve: This function computes the inverse of the special "matrix" 
+## returned by makeCacheMatrix above.If the inverse has already been 
+## calculated, then cacheSolve retrieves the inverse from the cache.
 
-## Write a short comment describing this function
+## makeCacheMatrix: Starts here!
 
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
@@ -18,10 +24,9 @@ makeCacheMatrix <- function(x = matrix()) {
         list(set = set, get = get,
              setinv = setinv,
              getinv = getinv)
-}
+} ## makeCacheMatrix: Ends here!
 
-
-## Write a short comment describing this function
+## cacheSolve: Starts here!
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -31,7 +36,7 @@ cacheSolve <- function(x, ...) {
                 return(m)
         }
         data <- x$get()
-        m <- solve(data)
+        m <- solve(data, ...)
         x$setinv(m)
         m
-}
+} ## cacheSolve: Ends here!
